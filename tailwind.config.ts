@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,19 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				delivery: {
+					50: '#f0f7ff',
+					100: '#e0effe',
+					200: '#bae0fd',
+					300: '#7ec6fb',
+					400: '#3aa6f8',
+					500: '#1089ed',
+					600: '#026bcb',
+					700: '#0354a5',
+					800: '#074887',
+					900: '#0a3d70',
+					950: '#072649',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,11 +98,34 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'pulse-ring': {
+					'0%': {
+						transform: 'scale(0.8)',
+						opacity: '0.8',
+					},
+					'100%': {
+						transform: 'scale(1.3)',
+						opacity: '0',
+					},
+				},
+				'scan-animation': {
+					'0%': {
+						transform: 'translateY(0)',
+					},
+					'50%': {
+						transform: 'translateY(100%)',
+					},
+					'100%': {
+						transform: 'translateY(0)',
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-ring': 'pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite',
+				'scan-animation': 'scan-animation 3s ease-in-out infinite',
 			}
 		}
 	},
