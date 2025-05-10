@@ -1,4 +1,16 @@
 
+// Using module declaration to resolve TypeScript errors
+// This tells TypeScript to treat the imports as "any" type
+declare module 'qrcode' {
+  const content: any;
+  export default content;
+}
+
+declare module 'jsqr' {
+  const content: any;
+  export default content;
+}
+
 import QRCode from 'qrcode';
 import jsQR from 'jsqr';
 
