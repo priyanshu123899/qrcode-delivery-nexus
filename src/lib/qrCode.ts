@@ -1,18 +1,11 @@
 
-// Using module declaration to resolve TypeScript errors
-// This tells TypeScript to treat the imports as "any" type
-declare module 'qrcode' {
-  const content: any;
-  export default content;
-}
+// Import packages with type assertions instead of module augmentation
+import * as QRCodeModule from 'qrcode';
+import * as jsQRModule from 'jsqr';
 
-declare module 'jsqr' {
-  const content: any;
-  export default content;
-}
-
-import QRCode from 'qrcode';
-import jsQR from 'jsqr';
+// Create type-safe references to the modules
+const QRCode = QRCodeModule as any;
+const jsQR = jsQRModule as any;
 
 // Generate a QR code as a data URL
 export const generateQRCode = async (data: string): Promise<string> => {
